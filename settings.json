@@ -1,0 +1,12 @@
+{
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\Pbz\\OneDrive\\Desktop\\poi-3.17.jar",
+        "c:\\Users\\Pbz\\OneDrive\\Desktop\\poi-ooxml-3.17.jar",
+        "c:\\Users\\Pbz\\OneDrive\\Desktop\\poi-ooxml-schemas-3.17.jar",
+        "c:\\Users\\Pbz\\OneDrive\\Desktop\\commons-collections4-4.1.jar",
+        "c:\\Users\\Pbz\\OneDrive\\Desktop\\xmlbeans-2.6.0.jar"
+    ]
+}
