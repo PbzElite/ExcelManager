@@ -1,3 +1,9 @@
+## I Wrote This Stuff
+
+Version: Beta 0.1.0
+Issues: The writing into the excel sheet isn't working
+Comments: The goal of this project is to make an executable file to convert an MSB excel report in an EasyShip one for quick and easy orders
+
 ## Getting Started
 
 Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
