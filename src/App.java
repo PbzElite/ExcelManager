@@ -35,18 +35,19 @@ public class App {
                 rrowarr.add(temp);
             }
 
-            for(int i = 1;i<rownu;i++){
+            for(int i = 1;i<=rownu;i++){
                 rowarr.add(i,easyship.createRow((short)i));
             }   
 
+
             for(Row x: rowarr){
-                System.out.println(x);
+                System.out.println("row" + x);
                 for(int i = 0;i<rownu;i++){
                     System.out.println("x.getCell(i)" + x.getCell(i));
                 }
             }
             
-            System.out.println("rownum " + easyship.getLastRowNum() + " " + rownu);
+            System.out.println("rownum " + easyship.getLastRowNum() + " " + rownu + " " + rowarr.size());
             rowarr.get(0).createCell(0).setCellValue((String)"Choose Courier by");  
             rowarr.get(0).createCell(1).setCellValue("Shipping Insurance");  
             rowarr.get(0).createCell(2).setCellValue("Taxes & Duties Paid by*");  
@@ -79,12 +80,139 @@ public class App {
             rowarr.get(0).createCell(29).setCellValue("Buyer's Notes");
             rowarr.get(0).createCell(30).setCellValue("Seller's Notes");
 
-            //for(int i = 1;i<rownu;i++){
-                String value = rrowarr.get(1).getCell(5).getStringCellValue();
-                rowarr.get(1).createCell(23).setCellValue(value);
-                System.out.println(rowarr.get(1).getCell(23).getStringCellValue());
-            //}
+            int[] read = {0,1,5,18,26,28,29,30};
+            int[] write = {27,4,23,26,6,8,7,10};
 
+            for(int j = 0;j<8;j++){
+                for(int i = 1;i<=rownu;i++){
+                    String value;
+                    switch(j){
+                        case 0:
+                            value = "USD";
+                            System.out.println(value);
+                            rowarr.get(i).createCell(27).setCellValue(value);
+                            break;
+                        case 1:
+                            value = rrowarr.get(i).getCell(1).getStringCellValue();
+                            System.out.println(value);
+                            rowarr.get(i).createCell(4).setCellValue(value);
+                            break;
+                        case 2:
+                            value = rrowarr.get(i).getCell(5).getStringCellValue();
+                            System.out.println(value);
+                            rowarr.get(i).createCell(23).setCellValue(value);  
+                            break;
+                        case 3:
+                            int val = (int)(rrowarr.get(i).getCell(18).getNumericCellValue());
+                            System.out.println(val);
+                            rowarr.get(i).createCell(26).setCellValue(val);
+                            break;
+                        case 4:
+                            value = rrowarr.get(i).getCell(26).getStringCellValue() + " " + rrowarr.get(i).getCell(27).getStringCellValue();
+                            value = value.substring(value.indexOf(":")+1);
+                            value = value.substring(0,value.indexOf(" ")) + " " + value.substring(value.indexOf("Name:") + 5);
+                            System.out.println(value);
+                            rowarr.get(i).createCell(6).setCellValue(value);
+                            break;
+                        case 5:
+                            value = rrowarr.get(i).getCell(28).getStringCellValue();
+                            value = value.substring(value.indexOf(":") + 1);
+                            System.out.println(value);
+                            rowarr.get(i).createCell(8).setCellValue(value);
+                            break;
+                        case 6:
+                            value = rrowarr.get(i).getCell(29).getStringCellValue();
+                            value = "+" + value.substring(value.indexOf(":")+1);
+                            System.out.println(value);
+                            rowarr.get(i).createCell(7).setCellValue(value);
+                            break;
+                        case 7:
+                            value = rrowarr.get(i).getCell(30).getStringCellValue();
+                            String v1 = value.substring(value.indexOf(":")+1,value.indexOf(","));
+                            String v2 = value.substring(value.indexOf(" ",value.indexOf(",")+2)+1);
+                            String v3 = value.substring(value.indexOf(" ",value.indexOf(","))+1,value.indexOf(" ",value.indexOf(",")+2));
+                            System.out.println(v1 + " " + v2 + " " + v3);
+                            rowarr.get(i).createCell(10).setCellValue(v1);
+                            rowarr.get(i).createCell(12).setCellValue(v2);
+                            rowarr.get(i).createCell(13).setCellValue(v3);
+                            break;
+                    }
+                }
+            }
+
+            /*
+            for(int i = 1;i<=rownu;i++){
+                String value = rrowarr.get(i).getCell(5).getStringCellValue();
+                System.out.println(value);
+                rowarr.get(i).createCell(23).setCellValue(value);  
+            }
+
+            for(int i = 1;i<=rownu;i++){
+                String value = rrowarr.get(i).getCell(1).getStringCellValue();
+                System.out.println(value);
+                rowarr.get(i).createCell(4).setCellValue(value);
+            }
+
+            for(int i = 1;i<=rownu;i++){
+                String value = rrowarr.get(i).getCell(29).getStringCellValue();
+                value = "+" + value.substring(value.indexOf(":")+1);
+                System.out.println(value);
+                rowarr.get(i).createCell(7).setCellValue(value);
+            }
+
+            for(int i = 1;i<=rownu;i++){
+                String value = rrowarr.get(i).getCell(28).getStringCellValue();
+                value = value.substring(value.indexOf(":") + 1);
+                System.out.println(value);
+                rowarr.get(i).createCell(8).setCellValue(value);
+            }
+
+            for(int i = 1;i<=rownu;i++){
+                String value = rrowarr.get(i).getCell(26).getStringCellValue() + " " + rrowarr.get(i).getCell(27).getStringCellValue();
+                value = value.substring(value.indexOf(":")+1);
+                value = value.substring(0,value.indexOf(" ")) + " " + value.substring(value.indexOf("Name:") + 5);
+                System.out.println(value);
+                rowarr.get(i).createCell(6).setCellValue(value);
+            }
+
+            for(int i = 1;i<=rownu;i++){
+                int value = (int)(rrowarr.get(i).getCell(18).getNumericCellValue());
+                System.out.println(value);
+                rowarr.get(i).createCell(26).setCellValue(value);
+            }
+
+            for(int i = 1;i<=rownu;i++){
+                String value = "USD";
+                System.out.println(value);
+                rowarr.get(i).createCell(27).setCellValue(value);
+            }
+
+            for(int i = 1;i<=rownu;i++){
+                String value = rrowarr.get(i).getCell(30).getStringCellValue();
+                String v1 = value.substring(value.indexOf(":")+1,value.indexOf(","));
+                String v2 = value.substring(value.indexOf(" ",value.indexOf(",")+2)+1);
+                String v3 = value.substring(value.indexOf(" ",value.indexOf(","))+1,value.indexOf(" ",value.indexOf(",")+2));
+                System.out.println(v1 + " " + v2 + " " + v3);
+                rowarr.get(i).createCell(10).setCellValue(v1);
+                rowarr.get(i).createCell(12).setCellValue(v2);
+                rowarr.get(i).createCell(13).setCellValue(v3);
+            }
+            */
+/*
+            for(int i = 1;i<=rownu;i++){
+                String value = rrowarr.get(i).getCell(30).getStringCellValue();
+                value = value.substring(value.indexOf(" ",value.indexOf(",")+2)+1);
+                System.out.println(value);
+                rowarr.get(i).createCell(12).setCellValue(value);
+            }
+
+            for(int i = 1;i<=rownu;i++){
+                String value = rrowarr.get(i).getCell(30).getStringCellValue();
+                value = value.substring(value.indexOf(" ",value.indexOf(","))+1,value.indexOf(" ",value.indexOf(",")+2));
+                System.out.println(value);
+                rowarr.get(i).createCell(13).setCellValue(value);
+            }
+*/
             /*
             while(itr.hasNext()){
                 Row r1 = itr.next();
@@ -110,6 +238,7 @@ public class App {
                 }
             }
 */
+
             FileOutputStream fileOut = new FileOutputStream("C:\\JavaPrograms\\ExcelManager\\EasyShip.xlsx");  
             wwb.write(fileOut);  
             //closing the Stream  
