@@ -1,5 +1,3 @@
-## Stuff I Wrote
-Welcome to the Beta 0.2.0 of the ExcelManager. The final goal of the code is to convert a MSB Shipping Report and convert it to an Easyprint one using a .exe file. So far, I've learned to read and write, but still require some work and tweaking with algorithms with reading and writing multiple rows at once.
 ## Getting Started
 
 Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
