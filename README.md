@@ -1,5 +1,5 @@
 ## Stuff I Wrote
-Welcome to the Beta 0.9.0 of the ExcelManager. The final goal of the code is to convert a MSB Shipping Report and convert it to an Easyprint one using a .exe file. So far, I've learned to read, write. I've completed some algorithms to copy all the information on but lack some key information regarding the easyprint format. The algorithm in place could be inefficient, so looking to find a new solution. I also got a basic GUI working, but looking to make it prettier and then its time to release it.
+Welcome to the Version 1.0.0 of the ExcelManager. The new final goal of the code is to create a GUI for easily converting two different formats of excel sheets and convert one file to another one using a .exe file. So far, I've learned to read, write. I've completed some algorithms to copy all the information on but lack some key information regarding the easyprint format. The algorithm in place could be inefficient, so looking to find a new solution. I also got a basic GUI working, but looking to make it prettier and then its time to release it. Also, just got an .jar file working.
 
 ## Getting Started
 
